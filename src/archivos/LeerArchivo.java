@@ -10,7 +10,6 @@ public class LeerArchivo {
         //Leer el archivo
         var nombreArchivo = "Mi_Archivo.txt";
         var archivo = new File(nombreArchivo);
-        var path = new Path();
         try{
             System.out.println("Contenido de Archivo");
             //Abrir el archivo en lectura

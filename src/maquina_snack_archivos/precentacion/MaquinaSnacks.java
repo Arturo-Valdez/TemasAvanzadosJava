@@ -1,7 +1,7 @@
 package maquina_snack_archivos.precentacion;
 
 import maquina_snack_archivos.dominio.Snack;
-import maquina_snack_archivos.servicio.Snacks;
+import maquina_snack_archivos.servicio.ServicioSnacksLista;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +20,7 @@ public class MaquinaSnacks {
         //Creamos la lista de productos tipo Snack
         List<Snack> productos = new ArrayList<>();
         System.out.println("*** Maquina de Snacks ***");
-        Snacks.mostrarSacks();//Mostrar inventario disponibles
+        ServicioSnacksLista.mostrarSacks();//Mostrar inventario disponibles
 
         while (!salir){
             try{
@@ -55,9 +55,9 @@ public class MaquinaSnacks {
         var nombre = consola.nextLine();
         System.out.print("Ingrese el precio del snack: ");
         var precio = Double.parseDouble(consola.nextLine());
-        Snacks.agregarSnack(new Snack(nombre, precio));
+        ServicioSnacksLista.agregarSnack(new Snack(nombre, precio));
         System.out.println("Tu snack se ha agregado correctamente");
-        Snacks.mostrarSacks();
+        ServicioSnacksLista.mostrarSacks();
     }
 
     private static void mostrarTicket(List<Snack> productos) {
@@ -76,7 +76,7 @@ public class MaquinaSnacks {
         var idSnack = Integer.parseInt(consola.nextLine());
         //Validar que el snac exista en la lisa de snacks
         var snackEncontrado = false;
-        for( var snack : Snacks.getSnacks()){
+        for( var snack : ServicioSnacksLista.getSnacks()){
             if(idSnack == snack.getIdSnack()){
                 //Agregamos el snack a la lista de productos
                 productos.add(snack);
